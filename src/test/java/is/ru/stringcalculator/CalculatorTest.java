@@ -45,16 +45,30 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void stringWithNegativeNumberMessages()
+	public void testStringWithNegativeNumberMessages()
 	{
 	  try
 	  {
 		Calculator.add("-1,2");
 	  }
-	  catch( final IllegalArgumentException e )
+	  catch( final IllegalArgumentException ex )
 	  {
 	    final String msg = "Negatives not allowed: -1";
-	    assertEquals(msg, e.getMessage());
+	    assertEquals(msg, ex.getMessage());
+	  }
+	}
+
+	@Test
+	public void TestStringWithManyNegativeNumberMessages()
+	{
+	  try
+	  {
+		Calculator.add("-2,-4,3,-5");
+	  }
+	  catch( final IllegalArgumentException ex )
+	  {
+	    final String msg = "Negatives not allowed: -4,-5";
+	    assertEquals(msg, ex.getMessage());
 	  }
 	}
 
