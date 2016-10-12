@@ -40,7 +40,7 @@ public class CalculatorTest {
     }
 
 	@Test(expected = IllegalArgumentException.class)
-	public void stringWithNegativeNumbers(){
+	public void teststringWithNegativeNumbers(){
 		Calculator.add("1,-1");
 	}
 
@@ -72,4 +72,13 @@ public class CalculatorTest {
 	  }
 	}
 
+	@Test
+	public void testNumberSmallerThan1000(){
+		assertEquals(1002, Calculator.add("1000,2"));
+	}
+
+		@Test
+	public void testNumberLargerThan1000(){
+		assertEquals(2, Calculator.add("1001,2"));
+	}
 }
