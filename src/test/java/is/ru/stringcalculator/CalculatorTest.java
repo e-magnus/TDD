@@ -53,7 +53,7 @@ public class CalculatorTest {
 	  }
 	  catch( final IllegalArgumentException ex )
 	  {
-	    final String msg = "Negatives not allowed: -1";
+	    final String msg = "Negatives not allowed: [-1]";
 	    assertEquals(msg, ex.getMessage());
 	  }
 	}
@@ -63,11 +63,11 @@ public class CalculatorTest {
 	{
 	  try
 	  {
-		Calculator.add("-2,-4,3,-5");
+		Calculator.add("2,-4,3,-5");
 	  }
 	  catch( final IllegalArgumentException ex )
 	  {
-	    final String msg = "Negatives not allowed: -4,-5";
+	    final String msg = "Negatives not allowed: [-4, -5]";
 	    assertEquals(msg, ex.getMessage());
 	  }
 	}

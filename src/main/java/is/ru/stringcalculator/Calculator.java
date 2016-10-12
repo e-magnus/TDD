@@ -1,13 +1,18 @@
 package is.ru.stringcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Calculator {
 
 	public static int add(String text){
+
 		if(text.equals("")){
 			return 0;
 		}
-		else if(text.contains("-"))
-			throw new IllegalArgumentException("Negatives not allowed: "+ -1);
+		if(text.contains("-")){
+			return checkForExceptions(text);
+		}
 		else if(text.contains(",") || text.contains("\n")){
 			return sum(splitNumbers(text));
 		}
@@ -31,6 +36,18 @@ public class Calculator {
 		return total;
     }
 
-
+    private static int checkForExceptions(String message) {
+    	String[] numbers = splitNumbers(message);
+    	int current = 0;
+    	List<Integer> negativeNumbers = new ArrayList<>();
+    	for(String number : numbers){
+    		current = toInt(number);
+		    if(current < 0)
+		    	negativeNumbers.add(current);
+		}
+		if(message.contains("-"))
+			throw new IllegalArgumentException("Negatives not allowed: "+ negativeNumbers.toString());
+		return 1;
+    }
 
 }
