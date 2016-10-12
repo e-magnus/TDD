@@ -7,6 +7,8 @@ public class Calculator {
 
 	public static int add(String text){
 
+		hasDelimiter(text);
+
 		if(text.equals("")){
 			return 0;
 		}
@@ -51,4 +53,9 @@ public class Calculator {
 		return 1;
     }
 
+    public static boolean hasDelimiter(String message){
+    	if(message.startsWith("//"))
+    		return true;
+    	return false;
+    }
 }

@@ -81,4 +81,14 @@ public class CalculatorTest {
 	public void testNumberLargerThan1000(){
 		assertEquals(2, Calculator.add("1001,2"));
 	}
+
+	@Test
+	public void testHasDelimiter(){
+		assertEquals(true, Calculator.hasDelimiter("//"));
+	}
+
+	@Test
+	public void testHasNoDelimiter(){
+		assertEquals(false, Calculator.hasDelimiter("**"));
+	}
 }
