@@ -91,4 +91,9 @@ public class CalculatorTest {
 	public void testHasNoDelimiter(){
 		assertEquals(false, Calculator.hasDelimiter("**"));
 	}
+
+	@Test
+	public void testNewDelimiter(){
+		assertEquals(true, Calculator.hasDelimiter("//:\n"));
+	}
 }
