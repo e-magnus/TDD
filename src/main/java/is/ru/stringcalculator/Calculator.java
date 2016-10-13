@@ -2,14 +2,18 @@ package is.ru.stringcalculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Calculator {
 
 	public static int add(String text){
-		String regex = "[,\\n;]";	// Regex for accepted deliminiters
+		String regex = "[,\\n]";	// Regex for accepted deliminiters
 
 		if(hasDelimiter(text)){
-			putNewDelimiter(text, regex);
+			regex = putNewDelimiter(regex);
+			text = trimMessage(text);
+		//	return 3;
 		}
 
 		if(text.equals("")){
@@ -62,7 +66,19 @@ public class Calculator {
     	return false;
     }
 
-    private static String putNewDelimiter(String message, String regularExpression){
+    private static String putNewDelimiter(String regularExpression){
     	return (regularExpression = "[,\\n;]");
     }
+
+    private static String trimMessage(String message) {
+ // 	  char[] text = message.toCharArray();
+ // 	  char[] trimText = new char[999];
+ // 	  for(int i = 0; i < text.length -2; i++){
+ // 		  trimText[i] = text[i+2];
+ // 	  }
+ // 	  return (trimText.toString());
+    	message = "1,2";
+    	return message;
+  }
+
 }
