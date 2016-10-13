@@ -51,7 +51,7 @@ public class Calculator {
 		    if(current < 0)
 		    	negativeNumbers.add(current);
 		}
-		if(message.contains("-"))
+		if(!negativeNumbers.isEmpty())
 			throw new IllegalArgumentException("Negatives not allowed: "+ negativeNumbers.toString());
 		return 1;
     }
