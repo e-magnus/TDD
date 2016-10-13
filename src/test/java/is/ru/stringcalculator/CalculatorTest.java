@@ -96,9 +96,14 @@ public class CalculatorTest {
 	public void testNewDelimiter(){
 		assertEquals(true, Calculator.hasDelimiter("//:\n"));
 	}
+	@Test
+	public void testWithNewDelimiter() {
+		assertEquals(3, Calculator.add("1;2"));
+	}
 
 	@Test
 	public void testTwoNumbersWithNewDelimiter() {
-		assertEquals(3, Calculator.add("//1;2"));
+		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
+
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class Calculator {
 
 	public static int add(String text){
-		String regex = "[,\\n]";	// Regex for accepted deliminiters
+		String regex = "[,\\n;]";	// Regex for accepted deliminiters
 
 		if(hasDelimiter(text)){
 			putNewDelimiter(text, regex);
@@ -18,7 +18,7 @@ public class Calculator {
 		else if(text.contains("-")){
 			return checkForExceptions(text, regex);
 		}
-		else if(text.contains(",") || text.contains("\n") ){
+		else if(text.contains(",") || text.contains("\n") || text.contains(";") ){
 			return sum(splitNumbers(text, regex));
 		}
 		else
@@ -63,6 +63,6 @@ public class Calculator {
     }
 
     private static String putNewDelimiter(String message, String regularExpression){
-    	return message;
+    	return (regularExpression = "[,\\n;]");
     }
 }
