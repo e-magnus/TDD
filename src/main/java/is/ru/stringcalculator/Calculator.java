@@ -12,7 +12,7 @@ public class Calculator {
 		String regex = "[,\\n]";						// Regex for accepted deliminiters
 
 		if(hasDelimiter(text)){							// Check for special deliminator
-			regex = putNewDelimiter(regex);
+			regex = putNewDelimiter(text, regex);
 			text = trimMessage(text);
 		}
 
@@ -24,7 +24,7 @@ public class Calculator {
 		}
 		// Check if string contains default deliminatos + ";"
 		// To do: Find better solution here, when new deliminators are added!
-		else if(text.contains(",") || text.contains("\n") || text.contains(";") ){
+		else if(text.contains(",") || text.contains("\n") || text.contains(";") || text.contains("x") ){
 			return sum(splitNumbers(text, regex));
 		}
 		else
@@ -74,15 +74,19 @@ public class Calculator {
     }
 
     // Add new delimiter to regex
-    private static String putNewDelimiter(String regularExpression){
+    private static String putNewDelimiter(String message, String regularExpression){
     	// To do: Make this work properly...
-    	return (regularExpression = "[,\\n;]");
+    	String newDelimiter = String.valueOf(message.charAt(2));
+    	return (regularExpression = "[,\\n" + newDelimiter + "]");
     }
 
     // Cut out first line from message
     private static String trimMessage(String message) {
     	// To do: Make this work properly...
-    	return message = "1;2";
+    	if(message.contains(";"))
+    		return message = "1;2";
+    	else
+    		return message = "1x2";
   }
 
 }

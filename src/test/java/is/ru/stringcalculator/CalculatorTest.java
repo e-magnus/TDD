@@ -102,4 +102,9 @@ public class CalculatorTest {
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
 
+	@Test
+	public void testTwoNumbersWithNewDelimiter2() {
+		assertEquals(3, Calculator.add("//x\n1x2"));
+	}
+
 }
